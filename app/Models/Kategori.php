@@ -13,6 +13,10 @@ class Kategori extends Model
     protected $table = 'kategori';
     public $timestamps = false;
 
+    protected $fillable = [
+        'nama_kategori',
+    ];
+
     /**
      * Dapatkan daftar produk yang tergolong ke dalam kategori ini.
      */

@@ -4,16 +4,25 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\StockController;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
 // Login and Register
 Route::get('login', [LoginController::class,'login']);
 Route::get('register', [RegisterController::class,'register']);
@@ -31,10 +40,9 @@ Route::post('/produk/{id}/restore', [ProdukController::class, 'restore'])->name(
 Route::delete('/produk/{id}/force-delete', [ProdukController::class, 'forceDelete'])->name('produk.forceDelete');
 
 // Kategori
-Route::get('/kategori', function () {
-    $kategoris = DB::table('kategori')->get(); 
-    return view('kategori', ['kategoris' => $kategoris]);
-});
+Route::get('/kategoris', [KategoriController::class, 'kategori']) ->name('kategori');
+Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
+Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
 
 // Other routes
 Route::get('penjualan', [PenjualanController::class,'penjualan']);

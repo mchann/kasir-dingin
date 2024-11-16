@@ -16,6 +16,7 @@
                     <h4 class="my-4">KASIR DINGIN >.<</h4>
                     <ul class="nav flex-column">
                         <li class="nav-item"><a href="dashboard" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item"><a href="profile" class="nav-link">Profile</a></li>
                         <li class="nav-item"><a href="produk" class="nav-link">Produk</a></li>
                         <li class="nav-item"><a href="kategori" class="nav-link">Kategori</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Transaksi</a></li>
@@ -35,7 +36,7 @@
                         <!-- Tabel Produk -->
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ route('produk.create') }}" class="btn btn-success mb-3">Tambah Data</a>
+                                <a href="{{ route('kategori.create') }}" class="btn btn-success mb-3">Tambah Data</a>
                                 <a href="{{ route('produk.trashed') }}" class="btn btn-warning mb-3">Lihat Produk Dihapus</a>
 
                                 <h5 class="card-title">Daftar Produk</h5>
