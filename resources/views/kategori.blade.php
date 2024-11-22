@@ -51,7 +51,7 @@
                                         @foreach($kategoris as $kategori)
                                             <tr>
                                                 <td>{{ $kategori->nama_kategori }}</td> <td>
-                                                    <a href="" class="btn btn-sm btn-primary">Edit</a>
+                                                    <a href="{{ route('kategori.edit', $kategori->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus produk ini?')">Delete</button>
                                                     </form>
                                                 </td>

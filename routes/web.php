@@ -43,6 +43,8 @@ Route::delete('/produk/{id}/force-delete', [ProdukController::class, 'forceDelet
 Route::get('/kategoris', [KategoriController::class, 'kategori']) ->name('kategori');
 Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
 Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
+Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');  
+Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
 
 // Other routes
 Route::get('penjualan', [PenjualanController::class,'penjualan']);

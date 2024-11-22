@@ -55,12 +55,12 @@
                                         <td>
                                             <form action="{{ route('produk.restore', $produk->id) }}" method="POST" style="display:inline;">
                                                 @csrf
-                                                @method('PATCH') <!-- Gunakan PATCH untuk restore -->
+                                                @method('PATCH') 
                                                 <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Yakin ingin mengembalikan produk ini?')">Restore</button>
                                             </form>
                                             <form action="{{ route('produk.forceDelete', $produk->id) }}" method="POST" style="display:inline;">
                                                 @csrf
-                                                @method('DELETE') <!-- Gunakan DELETE untuk force delete -->
+                                                @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus produk ini secara permanen?')">Delete Permanen</button>
                                             </form>
                                         </td>
