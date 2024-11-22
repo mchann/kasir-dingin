@@ -22,7 +22,7 @@
                         <div class="card text-white bg-primary mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">Produk</h5>
-                                <p class="card-text">Jumlah: 150</p>
+                                <p class="card-text">Jumlah : {{ $jumlahProduk }}</p>
                             </div>
                         </div>
                     </div>

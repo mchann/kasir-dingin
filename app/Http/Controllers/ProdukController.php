@@ -10,7 +10,9 @@ class ProdukController extends Controller
     public function produk()
     {
         $daftarProduk = Produk::with('kategori')->orderBy('nama_produk', 'asc')->get();
+        // $jumlahProduk = $daftarProduk->count();
         return view('produk', compact('daftarProduk'));
+
     }
 
     public function create()

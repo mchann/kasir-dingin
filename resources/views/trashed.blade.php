@@ -42,7 +42,7 @@
                                         <td>
                                             <form action="{{ route('produk.restore', $produk->id) }}" method="POST" style="display:inline;">
                                                 @csrf
-                                                @method('PATCH') 
+                                                
                                                 <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Yakin ingin mengembalikan produk ini?')">Restore</button>
                                             </form>
                                             <form action="{{ route('produk.forceDelete', $produk->id) }}" method="POST" style="display:inline;">

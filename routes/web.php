@@ -15,6 +15,9 @@ use App\Http\Controllers\AuthController;
 Route::get('login', [LoginController::class,'login']);
 Route::get('register', [RegisterController::class,'register']);
 Route::get('dashboard', [DashboardController::class,'dashboard']);
+
+
+
 Route::get('/register', function () {
     return view('auth.register');
 });
