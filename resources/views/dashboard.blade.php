@@ -11,22 +11,8 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <nav id="sidebar" class="col-md-2 bg-light">
-                <div class="sidebar-sticky">
-                    <h4 class="my-4">KASIR DINGIN >.<</h4>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a href="dashboard" class="nav-link">Dashboard</a></li>
-                        <li class="nav-item"><a href="produk" class="nav-link">Produk</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Kategori</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Transaksi</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Detail Transaksi</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Laporan</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pelanggan</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pengguna</a></li>
-
-                    </ul>
-                </div>
-            </nav>
+            @include('components.navbar')
+           
 
             <!-- Main Content -->
             <main class="col-md-10">
@@ -60,17 +46,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Card 4: Diskon -->
-                    <div class="col-md-3">
-                        <div class="card text-white bg-info mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Diskon</h5>
-                                <p class="card-text">Jumlah: 50</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row">
                     <!-- Card 5: Pelanggan -->

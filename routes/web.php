@@ -9,26 +9,33 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\StockController;
-use App\Models\Kategori;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
+// Login and Register
+Route::get('login', [LoginController::class,'login']);
+Route::get('register', [RegisterController::class,'register']);
+Route::get('dashboard', [DashboardController::class,'dashboard']);
+Route::get('/register', function () {
+    return view('auth.register');
 });
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/login', function () {
+    return view('auth.login');
+});
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 Route::get('/profile', function () {
     return view('profile');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('dashboard');
 });
-// Login and Register
-Route::get('login', [LoginController::class,'login']);
-Route::get('register', [RegisterController::class,'register']);
-Route::get('dashboard', [DashboardController::class,'dashboard']);
 
-// Routes for Produk
+
+// Produk
 Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk.create');
 Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store');
 Route::get('/produk', [ProdukController::class, 'produk'])->name('produk');
@@ -45,8 +52,15 @@ Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kat
 Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
 Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');  
 Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+Route::get('/kategori/trashed', [KategoriController::class, 'trashed'])->name('kategori.trashed');
+Route::post('/kategori/{id}/restore', [KategoriController::class, 'restore'])->name('kategori.restore');
 
-// Other routes
+
+// route lain
 Route::get('penjualan', [PenjualanController::class,'penjualan']);
 Route::get('laporan', [LaporanController::class, 'laporanKeuangan'])->name('laporan');
 Route::get('stock', [StockController::class, 'stock']);
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware('auth');

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('kategori', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kategori');
+           
         });
     }
 
@@ -23,5 +24,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('kategori');
+
     }
 };

@@ -11,23 +11,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <nav id="sidebar" class="col-md-2 bg-light">
-                <div class="sidebar-sticky">
-                    <h4 class="my-4">KASIR DINGIN >.<</h4>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a href="dashboard" class="nav-link">Dashboard</a></li>
-                        <li class="nav-item"><a href="profile" class="nav-link">Profile</a></li>
-                        <li class="nav-item"><a href="produk" class="nav-link">Produk</a></li>
-                        <li class="nav-item"><a href="kategori" class="nav-link">Kategori</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Transaksi</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Detail Transaksi</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Laporan</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pelanggan</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pengguna</a></li>
-
-                    </ul>
-                </div>
-            </nav>
+            @include('components.navbar')
 
             <!-- Main Content -->
             <main class="col-md-10">
@@ -37,7 +21,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <a href="{{ route('kategori.create') }}" class="btn btn-success mb-3">Tambah Data</a>
-                                <a href="{{ route('produk.trashed') }}" class="btn btn-warning mb-3">Lihat Produk Dihapus</a>
+                                <a href="{{ route('kategori.trashed') }}" class="btn btn-secondary mb-3" disabled>Lihat Produk Dihapus</a>
 
                                 <h5 class="card-title">Daftar Produk</h5>
                                 <table class="table table-striped">
@@ -52,6 +36,9 @@
                                             <tr>
                                                 <td>{{ $kategori->nama_kategori }}</td> <td>
                                                     <a href="{{ route('kategori.edit', $kategori->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                                    <form action="{{ route('kategori.destroy', $kategori->id) }}" method="POST" style="display: inline-block;">
+                                                        @csrf
+                                                        @method('DELETE')
                                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus produk ini?')">Delete</button>
                                                     </form>
                                                 </td>
