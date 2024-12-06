@@ -7,13 +7,19 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
-    public function produk()
-    {
-        $daftarProduk = Produk::with('kategori')->orderBy('nama_produk', 'asc')->get();
-        // $jumlahProduk = $daftarProduk->count();
-        return view('produk', compact('daftarProduk'));
+    public function produk(Request $request)
+{
+    $query = Produk::with('kategori')->orderBy('nama_produk', 'asc');
 
+    
+    if ($request->has('search') && $request->search != '') {
+        $query->where('nama_produk', 'like', '%' . $request->search . '%');
     }
+
+    $daftarProduk = $query->get();
+    return view('produk', compact('daftarProduk'));
+}
+
 
     public function create()
     {
