@@ -27,9 +27,9 @@
 
               <!-- manajemen stok || just update stok -->
               <li>
-                <a href="{{ route('stok.manajemenstok') }}" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
-                    <img src="{{ asset('images/produk.png') }}" alt="Produk" class="h-6 w-6 mr-2">
-                    <span>Produk</span>
+                <a href="{{ route('manajemen.stok') }}" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
+                    <img src="{{ asset('images/stok.png') }}" alt="Produk" class="h-6 w-6 mr-2">
+                    <span>Manajemen Stok</span>
                 </a>
             </li>
             
