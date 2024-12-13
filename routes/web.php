@@ -65,7 +65,6 @@ Route::middleware(['auth'])->group(function () {
     // Penjualan and other routes
     Route::get('penjualan', [PenjualanController::class, 'penjualan']);
     Route::get('laporan', [LaporanController::class, 'laporanKeuangan'])->name('laporan');
-    Route::get('stock', [StockController::class, 'stock']);
 
     // Rute untuk Manajemen Stok
     Route::get('/manajemenstok', [ProdukController::class, 'manajemenStok'])->name('manajemen.stok');

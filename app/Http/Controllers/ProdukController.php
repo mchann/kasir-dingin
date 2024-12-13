@@ -114,8 +114,25 @@ class ProdukController extends Controller
     public function editStok($id)
     {
         $produk = Produk::findOrFail($id); // Cari produk berdasarkan ID
-        return view('stok.manajemenstok', compact('produk'));
+        return view('stok.edit', compact('produk'));
     }
+
+    public function updateStok(Request $request, $id)
+{
+   
+    $request->validate([
+        'stok' => 'required|integer|min:0',
+    ]);
+
+    $produk = Produk::findOrFail($id);
+
+    // Perbarui stok
+    $produk->stok = $request->stok;
+    $produk->save();
+
+    // Redirect dengan pesan sukses
+    return redirect()->route('manajemen.stok')->with('success', 'Stok produk berhasil diperbarui.');
+}
 
 
 }

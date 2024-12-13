@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container mx-auto mt-10 max-w-3xl">
-        <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-100 mb-6">Edit Stok Produk</h1>
+        <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-100 mb-6">Tambah atau Kurangi Stok Produk</h1>
         <form action="{{ route('manajemen.stok.update', $produk->id) }}" method="POST" class="space-y-6 bg-dark dark:bg-gray-800 p-6 rounded-lg shadow-md">
             @csrf
             @method('PUT')
