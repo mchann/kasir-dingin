@@ -31,7 +31,8 @@
                 <thead>
                     <tr>
                         <th>Nama Produk</th>
-                        <th>Harga</th>
+                        <th>Harga Dasar</th>
+                        <th>Harga Jual</th>
                         <th>Stok</th>
                         <th>Kategori</th>
                         <th>Created At</th>
@@ -43,18 +44,16 @@
                     @foreach($daftarProduk as $produk)
                         <tr>
                             <td>{{ $produk->nama_produk }}</td>
-                            <td>{{ $produk->harga }}</td>
+                            <td>{{ number_format($produk->harga_dasar, 0, ',', '.') }}</td>
+                            <td>{{ number_format($produk->harga_jual, 0, ',', '.') }}</td>
                             <td>{{ $produk->stok }}</td>
                             <td>{{ $produk->kategori->nama_kategori }}</td>
                             <td>{{ $produk->created_at }}</td>
                             <td>{{ $produk->updated_at }}</td>
                             <td>
-                                <!-- Tombol Edit dengan Ikon -->
                                 <a href="{{ route('produk.edit', $produk->id) }}" class="btn btn-sm btn-info">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                
-                                <!-- Tombol Delete dengan Ikon -->
                                 <form action="{{ route('produk.destroy', $produk->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')

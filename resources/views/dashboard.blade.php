@@ -12,7 +12,7 @@
                             <i class="fas fa-cube fa-2x mr-2"></i>
                             <div>
                                 <h5 class="card-title text-black">Produk</h5>
-                                <p class="card-text text-black" >Jumlah Produk:{{ $jumlahProduk }}</p>
+                                <p class="card-text text-black" >Jumlah Produk: {{ $jumlahProduk }}</p>
                             </div>
                         </div>
                       
@@ -28,7 +28,7 @@
                             <i class="fas fa-tags fa-2x mr-2"></i>
                             <div>
                                 <h5 class="card-title text-black">Kategori</h5>
-                                <p class="card-text text-black">Jumlah Kategori: </p>
+                                <p class="card-text text-black">Jumlah Kategori: {{ $jumlahKategori }}</p>
                             </div>
                         </div>
                       

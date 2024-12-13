@@ -30,7 +30,7 @@ Route::get('register', [RegisterController::class, 'create'])
 Route::post('register', [RegisterController::class, 'store'])
     ->middleware('guest');
 
-// Semua rute yang memerlukan login dilindungi oleh middleware 'auth'
+// semua rout e di protect sm middleware auht
 Route::middleware(['auth'])->group(function () {
 
     // Dashboard Routes
@@ -66,6 +66,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('penjualan', [PenjualanController::class, 'penjualan']);
     Route::get('laporan', [LaporanController::class, 'laporanKeuangan'])->name('laporan');
     Route::get('stock', [StockController::class, 'stock']);
+
+    // Rute untuk Manajemen Stok
+    Route::get('/manajemenstok', [ProdukController::class, 'manajemenStok'])->name('manajemen.stok');
+    Route::get('/manajemenstok/{id}/edit', [ProdukController::class, 'editStok'])->name('manajemen.stok.edit');
+    Route::put('/manajemenstok/{id}', [ProdukController::class, 'updateStok'])->name('manajemen.stok.update');
+
 });
 
 // Auth Routes
