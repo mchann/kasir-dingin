@@ -9,6 +9,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DiskonController;
 
 // Login Routes
 Route::get('login', [LoginController::class, 'create'])
@@ -70,6 +71,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manajemenstok', [ProdukController::class, 'manajemenStok'])->name('manajemen.stok');
     Route::get('/manajemenstok/{id}/edit', [ProdukController::class, 'editStok'])->name('manajemen.stok.edit');
     Route::put('/manajemenstok/{id}', [ProdukController::class, 'updateStok'])->name('manajemen.stok.update');
+
+    // Duskon route
+    Route::resource('diskon', DiskonController::class);
 
 });
 

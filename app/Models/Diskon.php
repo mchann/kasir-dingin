@@ -10,5 +10,11 @@ class Diskon extends Model
     use HasFactory;
 
     protected $table = 'diskon';
-    
+
+    protected $fillable = [
+        'nama_diskon',
+        'persentase',
+        'tgl_mulai',
+        'tgl_akhir',
+    ];
 }

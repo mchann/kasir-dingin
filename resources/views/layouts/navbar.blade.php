@@ -21,7 +21,7 @@
             <li>
                 <a href="{{ route('produk') }}" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                     <img src="{{ asset('images/produk.png') }}" alt="Produk" class="h-6 w-6 mr-2">
-                    <span>Produk</span>
+                    <span>Produk atau Jasa</span>
                 </a>
             </li>
 
@@ -41,6 +41,14 @@
                 </a>
             </li>
             
+             <!-- Diskon -->
+             <li>
+                <a href="{{ route('diskon.index') }}" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
+                    <img src="{{ asset('images/diskon.png') }}" alt="Diskon" class="h-6 w-6 mr-2">
+                    <span>Diskon</span>
+                </a>
+            </li>
+
             <!-- Transaksi -->
             <li>
                 <a href="#" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">

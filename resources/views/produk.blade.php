@@ -35,8 +35,8 @@
                         <th>Harga Jual</th>
                         <th>Stok</th>
                         <th>Kategori</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
+                        <th>Diupload</th>
+                        <th>Diubah</th>
                         <th>Action</th>
                     </tr>
                 </thead>
