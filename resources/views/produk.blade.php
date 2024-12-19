@@ -30,6 +30,7 @@
             <table class="table table-primary table-striped">
                 <thead>
                     <tr>
+                        <th>Gambar</th>
                         <th>Nama Produk</th>
                         <th>Harga Dasar</th>
                         <th>Harga Jual</th>
@@ -43,6 +44,14 @@
                 <tbody>
                     @foreach($daftarProduk as $produk)
                         <tr>
+                            <!-- Kolom Gambar -->
+                            <td>
+                                @if($produk->gambar)
+                                    <img src="{{ asset('storage/' . $produk->gambar) }}" alt="Gambar Produk" class="w-16 h-16 object-cover">
+                                @else
+                                    <span class="text-gray-500">Tidak Ada Gambar</span>
+                                @endif
+                            </td>
                             <td>{{ $produk->nama_produk }}</td>
                             <td>{{ number_format($produk->harga_dasar, 0, ',', '.') }}</td>
                             <td>{{ number_format($produk->harga_jual, 0, ',', '.') }}</td>

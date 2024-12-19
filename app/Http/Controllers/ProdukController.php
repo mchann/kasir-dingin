@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProdukController extends Controller
 {
@@ -35,11 +37,19 @@ class ProdukController extends Controller
             'harga_dasar' => 'required|integer|min:0',
             'harga_jual' => 'required|integer|min:0',
             'stok' => 'required|integer|min:0',
-            'kategori_id' => 'required|exists:kategori,id'
+            'kategori_id' => 'required|exists:kategori,id',
+            'gambar' => 'nullable|image|mimes:jpg,png,jpeg,gif' // Validasi gambar
         ]);
     
-        // Simpan data
-        Produk::create($validated);
+        // Simpan produk
+        $produk = Produk::create($validated);
+    
+        // Simpan gambar jika ada
+        if ($request->hasFile('gambar')) {
+            $gambarPath = $request->file('gambar')->store('produk', 'public'); // Menyimpan gambar di folder produk
+            $produk->gambar = $gambarPath;
+            $produk->save();
+        }
     
         return redirect()->route('produk')->with('success', 'Produk berhasil ditambahkan.');
     }
@@ -59,16 +69,30 @@ class ProdukController extends Controller
             'harga_dasar' => 'required|integer|min:0',
             'harga_jual' => 'required|integer|min:0',
             'stok' => 'required|integer|min:0',
-            'kategori_id' => 'required|exists:kategori,id'
+            'kategori_id' => 'required|exists:kategori,id',
+            'gambar' => 'nullable|image|mimes:jpg,png,jpeg,gif' // Validasi gambar
         ]);
     
-        // Update data
+        // Cari produk berdasarkan ID
         $produk = Produk::findOrFail($id);
         $produk->update($validated);
     
+        // Cek jika ada gambar yang di-upload
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($produk->gambar) {
+                Storage::delete('public/' . $produk->gambar);
+
+            }
+            
+            // Simpan gambar baru
+            $gambarPath = $request->file('gambar')->store('produk', 'public');
+            $produk->gambar = $gambarPath;
+            $produk->save();
+        }
+    
         return redirect()->route('produk')->with('success', 'Produk berhasil diperbarui.');
     }
-
     // Soft delete
     public function destroy($id)
     {

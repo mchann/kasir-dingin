@@ -30,7 +30,7 @@
                 </thead>
                 <tbody>
                     @foreach ($produk as $item)
-                        <tr class="text-gray-700 dark:text-gray-300">
+                        <tr class="">
                             <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                             <td class="border px-4 py-2">{{ $item->nama_produk }}</td>
                             <td class="border px-4 py-2">{{ $item->stok }}</td>
