@@ -12,7 +12,7 @@
 
 # Kasir Dingin
 
-Kasir Dingin adalah aplikasi berbasis web yang dikembangkan menggunakan framework Laravel. Aplikasi ini dirancang untuk membantu pengelolaan sistem kasir dengan fitur-fitur yang mudah digunakan dan efisien.
+Kasir Dingin adalah aplikasi kasir berbasis web yang dikembangkan menggunakan framework Laravel. Aplikasi ini dirancang untuk membantu pengelolaan sistem kasir dengan fitur-fitur yang mudah digunakan dan efisien.
 
 <p align="center"><a href="/">
    <img src="public/images/loginkasir.png" alt="KasirDingin Logo" class="w-24 h-24">
@@ -24,10 +24,10 @@ Kasir Dingin adalah aplikasi berbasis web yang dikembangkan menggunakan framewor
 
 ## Fitur Utama
 
-- [Mesin routing sederhana dan cepat](https://laravel.com/docs/routing).
-- Kontainer injeksi dependensi yang kuat.
-- Dukungan untuk berbagai back-end untuk [sesi](https://laravel.com/docs/session) dan [penyimpanan cache](https://laravel.com/docs/cache).
-- ORM database yang intuitif dan ekspresif ([Eloquent](https://laravel.com/docs/eloquent)).
+- [Manajemen Produk atau Jasa](https://laravel.com/docs/routing).
+- Ada manajemen stok produk.
+- Ada manajemen kategori produk.
+- Ada juga soft delete, ketika produk dihapus, maka data produk tidak akan benar-benar dihapus, melainkan hanya di-soft delete.
 - Migrasi skema yang tidak bergantung pada jenis database ([Schema Migrations](https://laravel.com/docs/migrations)).
 - Pemrosesan tugas latar belakang yang tangguh ([Job Queues](https://laravel.com/docs/queues)).
 - Penyiaran peristiwa secara real-time ([Event Broadcasting](https://laravel.com/docs/broadcasting)).
