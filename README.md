@@ -1,6 +1,6 @@
 <p align="center"><a href="/">
-                    <img src="{{ asset('images/logokasir.png') }}" alt="KasirDingin Logo" class="w-24 h-24">
-                </a></p>
+    <img src="assets/images/logokasir.png" alt="KasirDingin Logo" class="w-24 h-24">
+</a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
