@@ -1,5 +1,6 @@
 <p align="center"><a href="/">
-    <img src="assets/images/logokasir.png" alt="KasirDingin Logo" class="w-24 h-24">
+   <img src="public/images/logokasir.png" alt="KasirDingin Logo" class="w-24 h-24">
+
 </a></p>
 
 <p align="center">
