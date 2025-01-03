@@ -1,4 +1,7 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="/">
+   <img src="public/images/logokasir.png" alt="KasirDingin Logo" class="w-24 h-24">
+
+</a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -7,33 +10,43 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## KASIR DINGIN
+# Kasir Dingin
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Kasir Dingin adalah aplikasi kasir berbasis web yang dikembangkan menggunakan framework Laravel. Aplikasi ini dirancang untuk membantu pengelolaan sistem kasir dengan fitur-fitur yang mudah digunakan dan efisien.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center"><a href="/">
+   <img src="public/images/loginkasir.png" alt="KasirDingin Logo" class="w-24 h-24">
+</a></p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center"><a href="/">
+   <img src="public/images/produkkasir.png" alt="KasirDingin Logo" class="w-24 h-24">
+</a></p>
 
-## Learning Laravel
+## Fitur Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [Manajemen Produk atau Jasa](https://laravel.com/docs/routing).
+- Ada manajemen stok produk.
+- Ada manajemen kategori produk.
+- Ada juga soft delete, ketika produk dihapus, maka data produk tidak akan benar-benar dihapus, melainkan hanya di-soft delete.
+- Migrasi skema yang tidak bergantung pada jenis database ([Schema Migrations](https://laravel.com/docs/migrations)).
+- Pemrosesan tugas latar belakang yang tangguh ([Job Queues](https://laravel.com/docs/queues)).
+- Penyiaran peristiwa secara real-time ([Event Broadcasting](https://laravel.com/docs/broadcasting)).
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Laravel memberikan aksesibilitas, kekuatan, dan alat yang diperlukan untuk membangun aplikasi yang besar dan kuat.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Panduan Pembelajaran Laravel
 
-## Laravel Sponsors
+Laravel memiliki dokumentasi yang sangat lengkap dan perpustakaan tutorial video yang luas untuk mempermudah memulai dengan framework ini. Beberapa sumber pembelajaran:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- [Dokumentasi Laravel](https://laravel.com/docs)
+- [Laravel Bootcamp](https://bootcamp.laravel.com)
+- [Laracasts](https://laracasts.com): Ribuan video tutorial tentang Laravel, PHP modern, pengujian unit, dan JavaScript.
 
-### Premium Partners
+## Sponsor Laravel
+
+Terima kasih kepada sponsor berikut atas dukungan mereka terhadap pengembangan Laravel. Jika Anda tertarik menjadi sponsor, kunjungi [Laravel Partners Program](https://partners.laravel.com).
+
+### Mitra Premium
 
 - **[Vehikl](https://vehikl.com/)**
 - **[Tighten Co.](https://tighten.co)**
@@ -49,19 +62,18 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[byte5](https://byte5.de)**
 - **[OP.GG](https://op.gg)**
 
-## Contributing
+## Berkontribusi
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Terima kasih telah mempertimbangkan untuk berkontribusi pada framework Laravel! Panduan kontribusi dapat ditemukan di [dokumentasi Laravel](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## Kode Etik
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Untuk memastikan komunitas Laravel tetap ramah dan inklusif, harap tinjau dan patuhi [Kode Etik](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+## Kerentanan Keamanan
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Jika Anda menemukan kerentanan keamanan dalam Laravel, kirimkan email ke Taylor Otwell melalui [taylor@laravel.com](mailto:taylor@laravel.com). Semua kerentanan keamanan akan segera ditangani.
 
-## License
+## Lisensi
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-#kasir-dingin w laravel
+Framework Laravel adalah perangkat lunak sumber terbuka yang dilisensikan di bawah [lisensi MIT](https://opensource.org/licenses/MIT).

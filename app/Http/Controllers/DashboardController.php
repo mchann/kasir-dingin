@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produk;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -9,6 +10,9 @@ class DashboardController extends Controller
     public function dashboard()
     {
         $jumlahProduk = Produk::count();
-        return view('dashboard', compact('jumlahProduk'));
+        $jumlahKategori = Kategori::count();
+        return view('dashboard', compact('jumlahProduk','jumlahKategori'));
     }
+
+   
 }
