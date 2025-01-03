@@ -13,7 +13,11 @@
 <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900 dark:text-black">
     <div class="min-h-screen flex">
         <!-- Sidebar -->
+<<<<<<< HEAD
+        @include('layouts.navbar')  <!-- Memanggil file navbar.blade.php -->
+=======
         @include('layouts.navbar')  
+>>>>>>> 510fcf1da4d4f354a1241ffe85f81e30205ce94c
 
         <!-- Main Content -->
         <main class="flex-1 p-6">

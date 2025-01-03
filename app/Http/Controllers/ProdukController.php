@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
+use App\Models\Transaksi;
+=======
 use Illuminate\Support\Facades\Storage;
 
+>>>>>>> 510fcf1da4d4f354a1241ffe85f81e30205ce94c
 
 class ProdukController extends Controller
 {
@@ -13,8 +17,41 @@ class ProdukController extends Controller
 {
     $query = Produk::with('kategori')->orderBy('nama_produk', 'asc');
 
+<<<<<<< HEAD
+    
     if ($request->has('search') && $request->search != '') {
         $query->where('nama_produk', 'like', '%' . $request->search . '%');
+    }
+
+    $daftarProduk = $query->get();
+    return view('produk', compact('daftarProduk'));
+}
+
+
+    public function create2()
+    {
+        $produk = Produk::with('kategori')->get(); // Ambil daftar produk beserta kategori
+        return view('transaksi_create', compact('produk'));
+    }
+
+    public function store2(Request $request)
+    {
+        $request->validate([
+            'tanggal' => 'required|date',
+            'total' => 'required|numeric',
+            'id_produk' => 'required|exists:produk,id', // Validasi produk
+            'metode_pembayaran' => 'required|string',
+            'id_pelanggan' => 'required|integer',
+            'id_pengguna' => 'required|integer',
+        ]);
+
+        Transaksi::create($request->all());
+
+        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil ditambahkan.');
+=======
+    if ($request->has('search') && $request->search != '') {
+        $query->where('nama_produk', 'like', '%' . $request->search . '%');
+>>>>>>> 510fcf1da4d4f354a1241ffe85f81e30205ce94c
     }
 
     $daftarProduk = $query->get();

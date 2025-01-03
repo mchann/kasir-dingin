@@ -21,6 +21,9 @@
             <li>
                 <a href="{{ route('produk') }}" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                     <img src="{{ asset('images/produk.png') }}" alt="Produk" class="h-6 w-6 mr-2">
+<<<<<<< HEAD
+                    <span>Produk</span>
+=======
                     <span>Produk atau Jasa</span>
                 </a>
             </li>
@@ -30,6 +33,7 @@
                 <a href="{{ route('manajemen.stok') }}" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                     <img src="{{ asset('images/stok.png') }}" alt="Produk" class="h-6 w-6 mr-2">
                     <span>Manajemen Stok</span>
+>>>>>>> 510fcf1da4d4f354a1241ffe85f81e30205ce94c
                 </a>
             </li>
             
@@ -41,6 +45,8 @@
                 </a>
             </li>
             
+<<<<<<< HEAD
+=======
              <!-- Diskon -->
              <li>
                 <a href="{{ route('diskon.index') }}" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
@@ -49,6 +55,7 @@
                 </a>
             </li>
 
+>>>>>>> 510fcf1da4d4f354a1241ffe85f81e30205ce94c
             <!-- Transaksi -->
             <li>
                 <a href="#" class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
