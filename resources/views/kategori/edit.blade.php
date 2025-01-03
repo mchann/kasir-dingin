@@ -1,30 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Kategori</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    
-<div class="container mt-5">
-<h1>Edit Kategori</h1>
-<form action="{{ route('kategori.update', $kategori->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-    <div>
-        <div class="mb-3">
-            <label for="nama_kategori" class="form-label">Kategori Produk</label>
-            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="{{ $kategori->nama_kategori }}" required>
-        </div>
-     
+<x-app-layout>
+    <div class="container mx-auto mt-10 max-w-3xl">
+        <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-100 mb-6">Edit Kategori</h1>
+        <form action="{{ route('kategori.update', $kategori->id) }}" method="POST" class="space-y-6 bg-dark dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            @csrf
+            @method('PUT')
+
+            <!-- Nama Kategori -->
+            <div>
+                <label for="nama_kategori" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kategori Produk</label>
+                <input type="text" id="nama_kategori" name="nama_kategori" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" value="{{ $kategori->nama_kategori }}" required>
+            </div>
+
+            <!-- Buttons -->
+            <div>
+                <button type="submit" class="btn btn-primary px-3 py-1">
+                    Simpan Perubahan
+                </button>
+
+                <button>
+                    <a href="{{ route('kategori') }}" class="px-3 py-1 btn btn-danger">
+                        Batal
+                    </a>
+                </button>
+            </div>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Simpan</button>
-    <a href="{{ route('kategori') }}" class="btn btn-danger">Batal</a>
-</form>
-</div>
-
-</body>
-</html>
-
+</x-app-layout>

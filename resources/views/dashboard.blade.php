@@ -1,103 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            @include('components.navbar')
-           
+<x-app-layout>
+    
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-center text-white">Dashboard Kasir Dingin</h1>
 
-            <!-- Main Content -->
-            <main class="col-md-10">
-                <div class="row mt-4">
-                    <!-- Card 1: Produk -->
-                    <div class="col-md-3">
-                        <div class="card text-white bg-primary mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Produk</h5>
-                                <p class="card-text">Jumlah : {{ $jumlahProduk }}</p>
+        <div class="row mt-4">
+            <!-- Card Produk -->
+            <div class="col-md-4">
+                <div class="card text-white bg-info dark:bg-blue-800 mb-3 shadow-lg">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-cube fa-2x mr-2"></i>
+                            <div>
+                                <h5 class="card-title text-black">Produk</h5>
+                                <p class="card-text text-black" >Jumlah Produk:{{ $jumlahProduk }}</p>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Card 2: Kategori -->
-                    <div class="col-md-3">
-                        <div class="card text-white bg-success mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Kategori</h5>
-                                <p class="card-text">Jumlah: 25</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Transaksi -->
-                    <div class="col-md-3">
-                        <div class="card text-white bg-warning mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Transaksi</h5>
-                                <p class="card-text">Jumlah: 1195</p>
-                            </div>
-                        </div>
-                    </div>
-
-                <div class="row">
-                    <!-- Card 5: Pelanggan -->
-                    <div class="col-md-3">
-                        <div class="card text-white bg-danger mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Pelanggan</h5>
-                                <p class="card-text">Jumlah: 300</p>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
+            </div>
 
-                <!-- Grafik Dummy -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Sessions In Last 30 Days</h5>
-                                <canvas id="myChart" width="400" height="150"></canvas>
+            <!-- Card Kategori -->
+            <div class="col-md-4">
+                <div class="card text-white bg-info dark:bg-green-700 mb-3 shadow-lg">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-tags fa-2x mr-2"></i>
+                            <div>
+                                <h5 class="card-title text-black">Kategori</h5>
+                                <p class="card-text text-black">Jumlah Kategori: </p>
                             </div>
                         </div>
+                      
                     </div>
                 </div>
-            </main>
+            </div>
+
+            <!-- Card Penjualan (Tambahan) -->
+            <div class="col-md-4">
+                <div class="card text-white bg-success dark:bg-yellow-700 mb-3 shadow-lg">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-chart-line fa-2x mr-2"></i>
+                            <div>
+                                <h5 class="card-title"> Penjualan Hari Ini</h5>
+                                <p class="card-text">Rp. </p>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Chart.js Script -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [{
-                    label: 'Sessions',
-                    data: [12, 19, 3, 5, 2, 3, 9, 7, 11, 15, 18, 22],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+</x-app-layout>

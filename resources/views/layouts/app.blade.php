@@ -1,43 +1,44 @@
 <!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" x-init="$watch('darkMode', value => localStorage.setItem('darkMode', value))" x-bind:class="{ 'dark': darkMode }">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="{{ asset('images/kasir.png') }}" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav id="sidebar" class="col-md-2 bg-light">
-                <div class="sidebar-sticky">
-                    <h4 class="my-4">KASIR DINGIN >.<</h4>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a></li>
-                        <li class="nav-item"><a href="{{ route('profile') }}" class="nav-link">Profile</a></li>
-                        <li class="nav-item"><a href="{{ route('produk') }}" class="nav-link">Produk</a></li>
-                        <li class="nav-item"><a href="{{ route('kategori') }}" class="nav-link">Kategori</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Transaksi</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Detail Transaksi</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Laporan</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pelanggan</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pengguna</a></li>
-                    </ul>
-                </div>
-            </nav>
+<body class="font-sans antialiased bg-gray-100 dark:bg-gray-900 dark:text-black">
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        @include('layouts.navbar')  <!-- Memanggil file navbar.blade.php -->
 
-            <!-- Main Content -->
-            <main class="col-md-10">
-                @yield('content')
-            </main>
-        </div>
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <div class="text-right mb-4">
+              
+
+                <!-- Toggle Dark Mode -->
+                <button @click="darkMode = !darkMode" class="bg-gray-300 dark:bg-gray-700 text-black dark:text-white px-4 py-2 rounded">
+                    <span x-show="!darkMode">🌞 Kasir</span>
+                    <span x-show="darkMode">🌙 Dingin</span>
+                </button>
+
+                <!-- Tombol Logout -->
+                @if (Auth::check())
+                    <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded ml-2">
+                            Logout
+                        </button>
+                    </form>
+                @endif
+            </div>
+
+            {{ $slot }}
+        </main>
     </div>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    @stack('scripts')
 </body>
 </html>

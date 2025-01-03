@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produk Dihapus</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            @include('components.navbar')
+<x-app-layout>
 
             <!-- Main Content -->
             <main class="col-md-10">
                 <div class="row mt-4">
                     <div class="col-md-12">
                         <a href="{{ route('produk') }}" class="btn btn-success">Kembali</a>
+                      <br>
                         <h5 class="card-title">Produk Dihapus</h5>
-
-                        <table class="table table-striped">
+<br>
+                        <table class="table table-dark table-striped">
                             <thead class="table-dark">
                                 <tr>
                                     <th>Nama Produk</th>
@@ -53,15 +41,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </main>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</x-app-layout>

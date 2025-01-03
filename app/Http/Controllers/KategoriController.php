@@ -7,10 +7,18 @@ use App\Models\Kategori;
 
 class KategoriController extends Controller
 {
-    public function kategori()
+    public function kategori(Request $request)
     {
-        $kategoris = Kategori::orderBy('nama_kategori', 'asc')->get();
-        return view('kategori', compact('kategoris'));
+       
+    $kategoris = Kategori::orderBy('nama_kategori', 'asc');
+
+    if ($request->has('search') && $request->search != '') {
+        $kategoris = $kategoris->where('nama_kategori', 'like', '%' . $request->search . '%');
+    }
+
+    $kategoris = $kategoris->get();
+
+    return view('kategori', compact('kategoris'));
     }
 
     public function create()

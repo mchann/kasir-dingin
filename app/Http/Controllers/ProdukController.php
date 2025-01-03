@@ -4,15 +4,44 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use App\Models\Transaksi;
 
 class ProdukController extends Controller
 {
-    public function produk()
-    {
-        $daftarProduk = Produk::with('kategori')->orderBy('nama_produk', 'asc')->get();
-        // $jumlahProduk = $daftarProduk->count();
-        return view('produk', compact('daftarProduk'));
+    public function produk(Request $request)
+{
+    $query = Produk::with('kategori')->orderBy('nama_produk', 'asc');
 
+    
+    if ($request->has('search') && $request->search != '') {
+        $query->where('nama_produk', 'like', '%' . $request->search . '%');
+    }
+
+    $daftarProduk = $query->get();
+    return view('produk', compact('daftarProduk'));
+}
+
+
+    public function create2()
+    {
+        $produk = Produk::with('kategori')->get(); // Ambil daftar produk beserta kategori
+        return view('transaksi_create', compact('produk'));
+    }
+
+    public function store2(Request $request)
+    {
+        $request->validate([
+            'tanggal' => 'required|date',
+            'total' => 'required|numeric',
+            'id_produk' => 'required|exists:produk,id', // Validasi produk
+            'metode_pembayaran' => 'required|string',
+            'id_pelanggan' => 'required|integer',
+            'id_pengguna' => 'required|integer',
+        ]);
+
+        Transaksi::create($request->all());
+
+        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil ditambahkan.');
     }
 
     public function create()

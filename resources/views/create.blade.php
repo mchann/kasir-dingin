@@ -1,47 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Barang</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    
-<div class="container mt-5">
-<h1>Tambah Produk</h1>
-<form action="{{ route('produk.store') }}" method="POST">
-    @csrf
-    <div>
-        <div class="mb-3">
-            <label for="nama_produk" class="form-label">Nama Produk</label>
-            <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
-        </div>
+<x-app-layout>
+    <div class="container mx-auto mt-10 max-w-3xl">
+        <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-100 mb-6">Tambah Produk</h1>
+        <form action="{{ route('produk.store') }}" method="POST" class="space-y-6 bg-dark dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            @csrf
 
-        <div class="mb-3">
-            <label for="harga" class="form-label">Harga</label>
-            <input type="number" class="form-control" id="harga" name="harga" required>
-        </div>
+            <!-- Nama Produk -->
+            <div>
+                <label for="nama_produk" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Produk</label>
+                <input type="text" id="nama_produk" name="nama_produk"  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                    required>
+            </div>
 
-        <div class="mb-3">
-            <label for="stok" class="form-label">Stok</label>
-            <input type="number" class="form-control" id="stok" name="stok" required>
-        </div>
+            <!-- Harga -->
+            <div>
+                <label for="harga" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Harga</label>
+                <input type="number" id="harga" name="harga" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                    required>
+            </div>
 
-        <div class="mb-3">
-            <label for="kategori_id" class="form-label">Kategori</label>
-            <select class="form-control" id="kategori_id" name="kategori_id" required>
-               @foreach($kategori as $item)
-            <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
-        @endforeach
-            </select>
-     
+            <!-- Stok -->
+            <div>
+                <label for="stok" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Stok</label>
+                <input type="number" id="stok" name="stok" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                    required>
+            </div>
+
+            <!-- Kategori -->
+            <div>
+                <label for="kategori_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kategori</label>
+                <select  id="kategori_id" name="kategori_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                    required>
+                    @foreach($kategori as $item)
+                        <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Buttons -->
+            <div >
+                <button 
+                    type="submit" 
+                    class="btn btn-primary px-3 py-1">
+                    Simpan
+                </button>
+            
+
+                   <button >
+                <a href="{{ route('produk') }}" class="px-3 py-1 btn btn-danger">
+                    Batal
+                </a>
+                </button>
+            </div>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Simpan</button>
-    <a href="{{ route('produk') }}" class="btn btn-danger">Batal</a>
-</form>
-</div>
-
-</body>
-</html>
-
+</x-app-layout>

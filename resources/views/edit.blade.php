@@ -1,49 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Produk</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-        <h2>Edit Produk</h2>
-        <form action="{{ route('produk.update', $produk->id) }}" method="POST">
+<x-app-layout>
+    <div class="container mx-auto mt-10 max-w-3xl">
+        <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-100 mb-6">Edit Produk</h1>
+        <form action="{{ route('produk.update', $produk->id) }}" method="POST" class="space-y-6 bg-dark dark:bg-gray-800 p-6 rounded-lg shadow-md">
             @csrf
             @method('PUT')
-            
-            <div class="mb-3">
-                <label for="nama_produk" class="form-label">Nama Produk</label>
-                <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="{{ $produk->nama_produk }}" required>
+
+            <!-- Nama Produk -->
+            <div>
+                <label for="nama_produk" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Produk</label>
+                <input type="text" id="nama_produk" name="nama_produk" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" value="{{ $produk->nama_produk }}" required>
             </div>
 
-            <div class="mb-3">
-                <label for="harga" class="form-label">Harga</label>
-                <input type="number" class="form-control" id="harga" name="harga" value="{{ $produk->harga }}" required>
+            <!-- Harga -->
+            <div>
+                <label for="harga" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Harga</label>
+                <input type="number" id="harga" name="harga" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" value="{{ $produk->harga }}" required>
             </div>
 
-            <div class="mb-3">
-                <label for="stok" class="form-label">Stok</label>
-                <input type="number" class="form-control" id="stok" name="stok" value="{{ $produk->stok }}" required>
+            <!-- Stok -->
+            <div>
+                <label for="stok" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Stok</label>
+                <input type="number" id="stok" name="stok" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" value="{{ $produk->stok }}" required>
             </div>
 
-            <div class="mb-3">
-                <label for="kategori_id" class="form-label">Kategori</label>
-                <select class="form-control" id="kategori_id" name="kategori_id" required>
+            <!-- Kategori -->
+            <div>
+                <label for="kategori_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kategori</label>
+                <select id="kategori_id" name="kategori_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
                     @foreach($kategori as $item)
                         <option value="{{ $item->id }}" {{ $item->id == $produk->kategori_id ? 'selected' : '' }}>{{ $item->nama_kategori }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-            <a href="{{ route('produk') }}" class="btn btn-danger">Batal</a>
+            <!-- Buttons -->
+            <div>
+                <button type="submit" class="btn btn-primary px-3 py-1">
+                    Simpan Perubahan
+                </button>
+
+                <button>
+                    <a href="{{ route('produk') }}" class="px-3 py-1 btn btn-danger">
+                        Batal
+                    </a>
+                </button>
+            </div>
         </form>
     </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html> 
+</x-app-layout>

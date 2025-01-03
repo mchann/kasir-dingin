@@ -9,26 +9,28 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('transaksi', function (Blueprint $table) {
-            $table->id();
-            $table->date('tanggal');
-            $table->float('total');
-            $table->string('metode_pembayaran');
-            $table->unsignedBigInteger('pelanggan_id');
-            $table->unsignedBigInteger('pengguna_id');
-            $table->timestamps();
+    public function up()
+{
+    Schema::create('transaksi', function (Blueprint $table) {
+        $table->id('id_transaksi'); // Primary Key
+        $table->date('tanggal');
+        $table->decimal('total', 10, 2);
+        $table->string('metode_pembayaran');
+        $table->unsignedBigInteger('id_pelanggan')->nullable();
+        $table->unsignedBigInteger('id_pengguna')->nullable();
 
+        // Foreign Key Constraints
+        $table->foreign('id_pelanggan')->references('id')->on('pelanggan')->onDelete('cascade');
+        $table->foreign('id_pengguna')->references('id')->on('users')->onDelete('cascade');
+    });
 
-          $table->foreign('pelanggan_id')->references('id')->on('pelanggan');
-          $table->foreign('pengguna_id')->references('id')->on('pengguna');
-        });
-    }
+    Schema::table('transaksi', function (Blueprint $table) {
+        $table->unsignedBigInteger('id_produk');  // Tambahkan kolom produk
+        $table->foreign('id_produk')->references('id')->on('produk')->onDelete('cascade');  // Relasi dengan produk
+    });
+}
 
-    /**
-     * Reverse the migrations.
-     */
+   
     public function down(): void
     {
         Schema::dropIfExists('transaksi');
